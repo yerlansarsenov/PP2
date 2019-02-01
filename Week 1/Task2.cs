@@ -39,7 +39,7 @@ namespace ConsoleApp3
             Student s = new Student("Yerlan", "18BD110739");  //  создаем обьект класса Студент
             s.YearofStudy = 1;  //  по умолчанию значение равно 1
             s.Increment();  //  после мметода значение инкрементируется (+1), то есть равно 2
-            Console.WriteLine(s.YearofStudy);
+            Console.WriteLine(s.YearofStudy);  //  Показываю, что метод Increment работает (Вывод: 2)
 
         }
     }
