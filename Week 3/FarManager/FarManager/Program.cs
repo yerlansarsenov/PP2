@@ -15,18 +15,18 @@ namespace FarManager
         public int size;
         public FarManager()
         { 
-            cursor = 0;
+            cursor = 0;  // поумолчанию курсор будет иметь значение индекса первого (нулевого) элемента
             
         }
         public void Color(FileSystemInfo fs,int index)
         {
             if (cursor == index)
             {
-                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.BackgroundColor = ConsoleColor.Gray;    //  красим выбранный файл/папку в отличающий цвет
                 Console.ForegroundColor = ConsoleColor.Red;
             } else if (fs.GetType() == typeof(DirectoryInfo))
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.Blue;   // отличаем цветами папки и файлы
                 Console.BackgroundColor = ConsoleColor.Black;
             } else if (fs.GetType() == typeof(FileInfo))
             {
@@ -39,12 +39,12 @@ namespace FarManager
         {
             dir = new DirectoryInfo(path);
             
-            FileSystemInfo[] fsi = dir.GetFileSystemInfos();
-            size = fsi.Length;
+            FileSystemInfo[] fsi = dir.GetFileSystemInfos();    // вводим все элементы (и папки, и файлы) в массив
+            size = fsi.Length;  // определяем количество элементов
             
             
            
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 10; i++)   // выводим названия первых десять элементов массива
                 {
                     Color(fsi[i+kk], i+kk);
                     Console.WriteLine(fsi[i+kk].Name);
@@ -58,10 +58,10 @@ namespace FarManager
             int kk = 0;
             
             FileSystemInfo fs = null;
-            while (1==1)
+            while (1==1)   // бесконечный цикл
             {
                 Console.BackgroundColor = ConsoleColor.Black;
-                Console.Clear();
+                Console.Clear();  // каждый раз отчищаем экран, чтобы не переполнить его
                 Show(path,kk);
                 ConsoleKeyInfo key = Console.ReadKey();
                 if (key.Key == ConsoleKey.UpArrow)
@@ -70,10 +70,10 @@ namespace FarManager
                     if (cursor < 0)
                     {
                         cursor = size - 1;
-                        kk ++;
-                    }
-                    else
-                    {
+                        kk ++;                                             //  при каждой нажатой клавише выполняется определенное 
+                    }                                                      //  действие: движение вверх / вниз, открыть папку, назад 
+                    else                                                   //  к предыдущей папке, удалить папку, переименовать папку
+                    {                                                      //  
                         kk ++;
                         cursor--;
                     }
