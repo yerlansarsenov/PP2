@@ -14,12 +14,12 @@ namespace Task4
            
             string q = @"C:\Users\user1\Desktop\PP2\Week 2\Task4\Task4\text1.txt";    //  Пути для создания 
             string w = @"C:\Users\user1\Desktop\PP2\Week 2\Task4\Task4\text2.txt";    //     файлов
-            string asd = "KBTU is the best!!!";
-            StreamWriter dd = new StreamWriter(q);
-            dd.Write(asd);
-            dd.Close();
-            File.Copy(q, w);   //  Копируем  в новый файл
-            File.Delete(q);   //  Удаляем первый файл
+            string asd = "KBTU is the best!!!";    // текст для ввода
+            StreamWriter dd = new StreamWriter(q);    // "инструмент"  для ввода текста
+            dd.Write(asd);    // вводим текст
+            dd.Close();  
+            File.Copy(q, w);   //  копируем  в новый файл
+            File.Delete(q);   //  удаляем первый файл
         }
     }
 }
