@@ -10,15 +10,15 @@ namespace FarManager
 {
     class FarManager
     {
-        public int cursor;
-        DirectoryInfo dir;
-        public int size;
-        public FarManager()
+        public int cursor;             //  создаем переменные
+        DirectoryInfo dir;             //  
+        public int size;               //  
+        public FarManager()         // создаем конструктор 
         { 
             cursor = 0;
             
         }
-        public void Color(FileSystemInfo fs,int index)
+        public void Color(FileSystemInfo fs,int index)      // создаем функцию Color()  которая будеть красить названия папок и файлов
         {
             if (cursor == index)
             {
@@ -35,7 +35,7 @@ namespace FarManager
             }
             
         }
-        public void Show(string path)
+        public void Show(string path)        //  функция, выводящяя все названия (здесь же вызывается функция Color())
         {
             dir = new DirectoryInfo(path);
             
@@ -53,21 +53,21 @@ namespace FarManager
             
         }
 
-        public void Start(string path)
+        public void Start(string path)              //     основная функция Start() 
         {
             
             
             FileSystemInfo fs = null;
-            while (1==1)
+            while (1==1)            //           бесконечный цикл, при котором принимаются данные о нажатой клаве
             {
                 Console.BackgroundColor = ConsoleColor.Black;
-                Console.Clear();
-                Show(path);
+                Console.Clear();        //   очищаем экран, чтобы оно не переполнилось
+                Show(path);      //   вызываем функцию Show()
                 ConsoleKeyInfo key = Console.ReadKey();
                 if (key.Key == ConsoleKey.UpArrow)
                 {
                     
-                    if (cursor ==0)
+                    if (cursor ==0)    //  чтобы курсор не вышел за пределы списка
                     {
                         cursor = size - 1;
                         
@@ -82,7 +82,7 @@ namespace FarManager
                 {
                     
                   
-                    if (cursor == size - 1)
+                    if (cursor == size - 1)    //  чтобы курсор не вышел за пределы списка
                     {
                         cursor = 0;
                        
@@ -93,9 +93,9 @@ namespace FarManager
 
                     }
                 }
-                if (key.Key == ConsoleKey.O)
+                if (key.Key == ConsoleKey.O)     //  функция для открытия папок/файлов
                 {
-                    for(int i = 0; i < dir.GetFileSystemInfos().Length; i++)
+                    for(int i = 0; i < dir.GetFileSystemInfos().Length; i++)    //  цикл для определения местоположения курсора
                     {
                         if (cursor == i)
                         {
@@ -126,9 +126,9 @@ namespace FarManager
                         str.Close();
                     }
                 }
-                if(key.Key== ConsoleKey.D)
+                if(key.Key== ConsoleKey.D)           //    функция для удаления файлов/папок
                 {
-                    for (int i = 0; i < dir.GetFileSystemInfos().Length; i++)
+                    for (int i = 0; i < dir.GetFileSystemInfos().Length; i++)    //  цикл для определения местоположения курсора
                     {
                         if (cursor == i)
                         {
@@ -138,9 +138,9 @@ namespace FarManager
                     }
                     fs.Delete();
                 }
-                if(key.Key == ConsoleKey.R)
+                if(key.Key == ConsoleKey.R)         //         функция для переименования папок/файлов
                 {
-                    for(int i = 0; i < dir.GetFileSystemInfos().Length; i++)
+                    for(int i = 0; i < dir.GetFileSystemInfos().Length; i++)    //  цикл для определения местоположения курсора
                     {
                         if (i == cursor)
                         {
@@ -154,19 +154,19 @@ namespace FarManager
                     string pathh = new DirectoryInfo(fs.FullName).Parent.FullName;
                     if (fs.GetType() == typeof(FileInfo))
                     {
-                        File.Move(fs.FullName, pathh + "/" + newname);
-                    }
-                    else
-                        Directory.Move(fs.FullName, pathh + "/" + newname);
+                        File.Move(fs.FullName, pathh + "/" + newname);          //   использовал функцию Move(old,new)
+                    }                                                           //   
+                    else                                                        //   
+                        Directory.Move(fs.FullName, pathh + "/" + newname);     //   
                         
                 }
-                if(key.Key == ConsoleKey.I)
+                if(key.Key == ConsoleKey.I)             //    функция для перехода к предыдущей папке
                 {
                     cursor = 0;
                     dir = dir.Parent;
                     path = dir.FullName;
                 }
-                if (key.Key == ConsoleKey.E)
+                if (key.Key == ConsoleKey.E)          //   функция для завершения работы FarManager
                 {
                     return;
                 }
@@ -177,9 +177,9 @@ namespace FarManager
     {
         static void Main(string[] args)
         {
-            FarManager fr = new FarManager();
-            string path = @"C:\Users\user1\Desktop\ict";
-            fr.Start(path);
+            FarManager fr = new FarManager();     //   создаем обьект класса FarManager
+            string path = @"C:\Users\user1\Desktop\ict";   //  указываем путь к папке
+            fr.Start(path);    //  вызываем функцию FarManager.Start()
             
         }
     }
