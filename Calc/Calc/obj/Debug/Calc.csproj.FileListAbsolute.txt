@@ -1,0 +1,10 @@
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\bin\Debug\Calc.exe.config
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\bin\Debug\Calc.exe
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\bin\Debug\Calc.pdb
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.csprojAssemblyReference.cache
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.Form1.resources
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.Properties.Resources.resources
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.csproj.GenerateResource.cache
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.exe
+C:\Users\user1\Desktop\PP2\Week 7\Calc\Calc\obj\Debug\Calc.pdb
